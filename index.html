@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Para ti 🧡</title>
+
+<!-- TIPOGRAFÍA BONITA -->
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Great Vibes', cursive;
+  background: url('fondo.jpg') no-repeat center center fixed;
+  background-size: cover;
+  overflow: hidden;
+  color: white;
+}
+
+/* CAPA OSCURA */
+.overlay {
+  background: rgba(0,0,0,0.6);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+/* CONTENIDO */
+.carta {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  margin: auto;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+  padding: 20px;
+}
+
+/* BOTÓN */
+.boton {
+  background: #ff4d88;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 20px;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+/* TEXTO */
+.texto {
+  display: none;
+  font-size: 24px;
+  line-height: 1.6;
+}
+
+/* CORAZONES */
+.corazon {
+  position: absolute;
+  color: pink;
+  animation: flotar 6s linear infinite;
+}
+
+@keyframes flotar {
+  0% {transform: translateY(100vh); opacity: 1;}
+  100% {transform: translateY(-10vh); opacity: 0;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="overlay"></div>
+
+<div class="carta">
+  <h1>Para ti 🧡</h1>
+
+  <button class="boton" onclick="mostrarCarta()">Haz clic aquí amor 💕</button>
+
+  <div class="texto" id="cartaTexto">
+    Hola amor, te recuerdas que te hablé acerca de esta canción cuando estábamos jugábamos? 
+    Que en algún rato te la iba a dedicar? Pues quiero dedicártela ahora, esta canción demuestra 
+    un poco de lo que siento por ti 🧡🧡 <br><br>
+
+    Me encanta cuando dice que "cada vez que estoy contigo, el tiempo se detiene y desaparece" 
+    así me pasa a mí cuando estoy a tu lado y se me olvida todo lo demás.<br><br>
+
+    También cuando canta "ya no me hace falta nada más, lo más difícil de encontrar lo encontré contigo" 
+    porque es cierto amor, contigo encontré lo que tanto buscaba en mi vida.<br><br>
+
+    Y la parte que más me gusta es "quiero estar donde tú estás, amor eres tú, ninguno como tú" 
+    eso eres tú, no hay nadie como tú Daren.<br><br>
+
+    Espero que te guste mucho, la canción es tuya solo tuya, así como lo soy yo. 
+    Te amo Daren mucho y me esforzaré en que siempre te sientas amado por mi 🧡🧡🧡🧡
+  </div>
+
+  <!-- VIDEO -->
+  <iframe id="video" width="100%" height="315"
+    src=""
+    frameborder="0"
+    allow="autoplay"
+    allowfullscreen>
+  </iframe>
+
+</div>
+
+<script>
+function mostrarCarta() {
+  document.getElementById("cartaTexto").style.display = "block";
+
+  // Activar video con sonido
+  document.getElementById("video").src =
+    "https://www.youtube.com/embed/MkDfaLeNBrE?autoplay=1";
+
+  // Crear corazones
+  for (let i = 0; i < 20; i++) {
+    let heart = document.createElement("div");
+    heart.className = "corazon";
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (Math.random() * 20 + 20) + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => { heart.remove(); }, 6000);
+  }
+}
+</script>
+
+</body>
+</html>
